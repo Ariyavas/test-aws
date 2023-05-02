@@ -1,8 +1,8 @@
-version: '3.9'
+version: '3.8'
 services:
   php-apache-environment:
     container_name: php-apache
-    build: 
+    build:
       context: ./php
       dockerfile: Dockerfile
     depends_on:
@@ -35,6 +35,8 @@ services:
       PMA_HOST: db
     depends_on:
       - db
+    networks:
+      - mynetwork
 networks:
   mynetwork:
     driver: bridge
