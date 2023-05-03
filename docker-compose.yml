@@ -9,8 +9,6 @@ services:
       - db
     volumes:
       - ./php/src:/var/www/html/
-    networks:
-      - mynetwork
     ports:
       - 8080:80
   db:
@@ -22,8 +20,6 @@ services:
       MYSQL_DATABASE: MYSQL_DATABASE
       MYSQL_USER: MYSQL_USER
       MYSQL_PASSWORD: MYSQL_PASSWORD
-    networks:
-      - mynetwork
     ports:
       - "9906:3306"
   phpmyadmin:
@@ -35,8 +31,3 @@ services:
       PMA_HOST: db
     depends_on:
       - db
-    networks:
-      - mynetwork
-networks:
-  mynetwork:
-    driver: bridge
